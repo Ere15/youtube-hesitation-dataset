@@ -1,0 +1,19 @@
+<View>
+  <Header value="Разметка хезитаций (RU): слушай клип, смотри контекст, выбирай тип"/>
+  <Audio name="audio" value="$audio"/>
+  <Header value="Контекст: $left_word [...] $right_word"/>
+  <Text name="context" value="$context"/>
+  <Header value="Тайминг кандидата: $start – $end (video $video_id)"/>
+  <Choices name="label" toName="audio" choice="single" showInLine="true" required="true">
+    <Choice value="filled_ee_mm" hint="ээ, мм, аа, эм"/>
+    <Choice value="prolongation" hint="растяжка звука"/>
+    <Choice value="filler_word" hint="ну, вот, как бы, это самое"/>
+    <Choice value="repetition" hint="повтор слова/слога"/>
+    <Choice value="self_repair" hint="самоперебив, переформулировка"/>
+    <Choice value="silent_pause_long" hint="долгая тихая пауза в речи"/>
+    <Choice value="truncation_break" hint="обрыв слова/фразы"/>
+    <Choice value="breath_laugh_cough" hint="дыхание, смех, кашель"/>
+    <Choice value="other_noise_music" hint="музыка/шум, не речь"/>
+    <Choice value="not_hesitation" hint="обычная речь, ложный кандидат"/>
+  </Choices>
+</View>

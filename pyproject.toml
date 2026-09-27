@@ -1,0 +1,29 @@
+[project]
+name = "youtube-hesitation-dataset"
+version = "0.1.0"
+description = "Funnel for Russian hesitation dataset from YouTube: yt-dlp -> VAD + Whisper diff -> clips -> S3 -> Label Studio"
+readme = "README.md"
+authors = [
+    { name = "Ere15", email = "matveev856@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "boto3>=1.34",
+    "python-dotenv>=1.0",
+    "numpy>=1.26",
+    "soundfile>=0.12",
+    "onnxruntime>=1.17",
+    "silero-vad>=5.1.2",
+    "faster-whisper>=1.0",
+    "tqdm>=4.66",
+]
+
+[project.scripts]
+hesitation = "youtube_hesitation_dataset.cli:main"
+
+[tool.uv]
+package = true
+
+[build-system]
+requires = ["uv_build>=0.12.19,<0.13.0"]
+build-backend = "uv_build"
