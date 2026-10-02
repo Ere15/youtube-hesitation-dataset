@@ -7,10 +7,11 @@ from pathlib import Path
 
 def run_asr(wav_path: Path, out_path: Path,
             model_size: str = "small", compute_type: str = "int8",
+            device: str = "cpu",
             language: str = "ru", beam_size: int = 1) -> dict:
     from faster_whisper import WhisperModel  # lazy import
 
-    model = WhisperModel(model_size, device="cpu", compute_type=compute_type)
+    model = WhisperModel(model_size, device=device, compute_type=compute_type)
     segments, info = model.transcribe(
         str(wav_path), language=language, beam_size=beam_size,
         word_timestamps=True, vad_filter=False, condition_on_previous_text=False,

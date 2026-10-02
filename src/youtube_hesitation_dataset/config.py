@@ -39,7 +39,8 @@ class Settings:
     vad_min_silence_ms: int = 120
     vad_speech_pad_ms: int = 60
     whisper_model: str = "small"   # small-int8 on CPU; bump to medium if WER bad
-    whisper_compute: str = "int8"
+    whisper_device: str = field(default_factory=lambda: _env("WHISPER_DEVICE", default="cpu"))
+    whisper_compute: str = field(default_factory=lambda: _env("WHISPER_COMPUTE", default="int8"))
     whisper_lang: str = "ru"
     diff_tol_ms: int = 180         # tolerance around whisper words
     cand_min_ms: int = 150

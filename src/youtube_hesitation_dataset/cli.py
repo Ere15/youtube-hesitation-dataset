@@ -34,6 +34,7 @@ def run_one(url: str, max_duration_s: int = 0, model: str = "",
           if tr_path.exists()
           else asr_m.run_asr(wav, tr_path, model_size=model,
                              compute_type=SETTINGS.whisper_compute,
+                             device=SETTINGS.whisper_device,
                              language=SETTINGS.whisper_lang))
     d = diff_m.run_diff(vad_path, tr_path, diff_path, tol_ms=tol_ms,
                         min_ms=SETTINGS.cand_min_ms, max_ms=SETTINGS.cand_max_ms)
